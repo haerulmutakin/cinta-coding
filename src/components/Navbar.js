@@ -10,37 +10,46 @@ const Navbar = () => {
     const [dropdown, setDropdown] = useState(false)
 
     const handleProfileDetail = () => {
+        hideDropdown();
         navigate('/user-profile');
     }
 
     const handleLogout = () => {
+        hideDropdown();
         localStorage.removeItem('user');
         navigate('/');
     }
+
+    const hideDropdown = () => {
+        setDropdown(!dropdown)
+    }
     return ( 
-        <div className="navbar">
-            <div className="navbar-brand">
-                <h2>Cinta Koding</h2>
-            </div>
-            {currentUser?.username ? (
-                <Fragment>
-                    <div className="navbar-page-title">{pageTitle}</div>
-                    <div className="navbar-profile">
-                        Welcome, <span onClick={() => setDropdown(!dropdown)} className='user-profile-btn'>{currentUser.username} <FontAwesomeIcon icon={faCaretDown} /></span>
-                        {dropdown && (
-                            // <div className='backdrop'>
+        <div>
+            <div className="navbar">
+                <div className="navbar-brand">
+                    <h2>Cinta Koding</h2>
+                </div>
+                {currentUser?.username ? (
+                    <Fragment>
+                        <div className="navbar-page-title">{pageTitle}</div>
+                        <div className="navbar-profile">
+                            Welcome, <span onClick={() => setDropdown(!dropdown)} className='user-profile-btn'>{currentUser.username} <FontAwesomeIcon icon={faCaretDown} /></span>
+                            {dropdown && (
                                 <ul className='dropdown-profile'>
                                     <li onClick={handleProfileDetail}>Detail Profile</li>
                                     <li onClick={handleLogout}>Logout</li>
                                 </ul>
-                            // </div>
-                        )}
+                            )}
+                        </div>
+                    </Fragment>
+                ) : (
+                    <div className="navbar-profile">
+                        <NavLink to="/login">Login</NavLink>
                     </div>
-                </Fragment>
-            ) : (
-                <div className="navbar-profile">
-                    <NavLink to="/login">Login</NavLink>
-                </div>
+                )}
+            </div>
+            {dropdown && (
+                <div className='backdrop' onClick={hideDropdown}></div>
             )}
         </div>
      );
