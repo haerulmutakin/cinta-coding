@@ -27,7 +27,7 @@ const Navbar = () => {
         <div>
             <div className="navbar">
                 <div className="navbar-brand">
-                    <h2>Cinta Koding</h2>
+                    Cinta Koding
                 </div>
                 {currentUser?.username ? (
                     <Fragment>

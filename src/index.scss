@@ -76,12 +76,9 @@ input {
   width: 300px;
 }
 
-.box-4 {
-  grid-column: auto/span 4;
-  border: 1px solid black;
-}
 
 .navbar {
+  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -122,9 +119,11 @@ input {
 
 .navbar-profile {
   position: relative;
+  font-weight: bold;
 }
 
 .dropdown-profile {
+  background-color: #ffffff;
   font-size: 13px;
   padding: 10px 0;
   position: absolute;
@@ -235,5 +234,45 @@ table {
 
   .comment-user {
     margin-bottom: 5px;
+  }
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 26px;
+}
+
+
+@media screen and (max-width: 576px) {
+  .App {
+    width: 90%;
+  }
+
+  .post {
+    width: 90%;
+  }
+
+  .navbar-brand {
+    font-size: 14px;
+  }
+
+  .navbar-profile, .navbar-page-title {
+    font-size: 13px;
+  }
+
+  .navbar {
+    div {
+      width: 33%;
+  
+      &:nth-child(1) {
+        width: 40%;
+      }
+      &:nth-child(2) {
+        width: 20%;
+      }
+      &:nth-child(3) {
+        width: 40%;
+      }
+    }
   }
 }
