@@ -44,7 +44,6 @@ const PostItem = ({post}) => {
                 <div className="post-action">
                     <span className="post-comment"><FontAwesomeIcon icon={faComment} /> {comments}</span>
                     <button className="unbordered-btn" onClick={handlePostDetail}>Detail</button>
-                    {/* <NavLink to={`/post/${post.id}/${author?.username}/${comments}`}>Detail</NavLink> */}
                 </div>
             </td>
         </tr>
